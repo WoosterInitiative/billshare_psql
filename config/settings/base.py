@@ -66,15 +66,19 @@ DJANGO_APPS = [
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
+    # "address",
     "crispy_forms",
     "crispy_bootstrap5",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "phonenumber_field",
 ]
 
 LOCAL_APPS = [
     "billshare_psql.users",
+    "billshare_psql.globals",
+    "billshare_psql.properties",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -112,7 +116,7 @@ PASSWORD_HASHERS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"  # noqa: E501
     },
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
@@ -276,3 +280,8 @@ STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+# GOOGLE_API_KEY = env.str("DJANGO_GOOGLE_API_KEY")
+
+PHONENUMBER_DEFAULT_REGION = "US"
+
+ZIPCODEBASE_API_KEY = env.str("DJANGO_ZIPCODEBASE_API_KEY")
